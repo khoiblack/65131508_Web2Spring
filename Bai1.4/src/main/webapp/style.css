@@ -41,6 +41,7 @@ input[type='submit'], .btn-back {
     margin-top: 20px; font-weight: bold;
     text-decoration: none; display: inline-block;
     transition: background 0.3s;
+    box-sizing: border-box;
 }
 
 input[type='submit']:hover, .btn-back:hover { background-color: #27ae60; }
