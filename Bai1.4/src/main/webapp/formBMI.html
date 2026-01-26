@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chỉ số BMI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Tính Toán BMI</h2>
+        <form action="BMI" method="POST">
+            <label>Chiều cao (m):</label>
+            <input type="number" step="0.01" name="height" placeholder="Ví dụ: 1.75" required>
+            
+            <label>Cân nặng (kg):</label>
+            <input type="number" step="0.1" name="weight" placeholder="Ví dụ: 65" required>
+            
+            <input type="submit" value="TÍNH BMI">
+        </form>
+    </div>
+</body>
+</html>
