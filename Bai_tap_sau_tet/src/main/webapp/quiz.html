@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Trắc nghiệm Lập trình Web</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; padding: 20px; }
+        .quiz-container { background: white; max-width: 600px; margin: 0 auto; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h2 { color: #333; text-align: center; }
+        .question { margin-bottom: 20px; }
+        .question p { font-weight: bold; color: #2c3e50; margin-bottom: 10px; }
+        .options label { display: block; margin-bottom: 8px; cursor: pointer; }
+        input[type="submit"] { background-color: #3498db; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; width: 100%; margin-top: 15px; }
+        input[type="submit"]:hover { background-color: #2980b9; }
+    </style>
 </head>
 <body>
+
+<div class="quiz-container">
+    <h2>Bài Kiểm Tra Nhanh</h2>
+    <form action="QuizServlet" method="POST">
+        
+        <div class="question">
+            <p>Câu 1: Servlet là gì?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="A"> A. Là một ngôn ngữ lập trình Frontend.</label>
+                <label><input type="radio" name="q1" value="B"> B. Là một class Java chạy trên Server để xử lý Request.</label>
+                <label><input type="radio" name="q1" value="C"> C. Là một hệ quản trị cơ sở dữ liệu.</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>Câu 2: Phương thức nào được gọi khi Client gửi yêu cầu lấy dữ liệu (như gõ URL)?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="A"> A. doPost()</label>
+                <label><input type="radio" name="q2" value="B"> B. doInit()</label>
+                <label><input type="radio" name="q2" value="C"> C. doGet()</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>Câu 3: Để chuyển hướng request kèm theo dữ liệu từ Servlet sang JSP, ta dùng đối tượng nào?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="A"> A. RequestDispatcher</label>
+                <label><input type="radio" name="q3" value="B"> B. PrintWriter</label>
+                <label><input type="radio" name="q3" value="C"> C. HttpSession</label>
+            </div>
+        </div>
+
+        <input type="submit" value="Nộp bài">
+    </form>
+</div>
 
 </body>
 </html>
