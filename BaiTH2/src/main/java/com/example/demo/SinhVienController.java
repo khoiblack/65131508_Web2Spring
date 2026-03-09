@@ -1,7 +1,7 @@
-package Controllers.copy; 
+package com.example.demo;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model; // Chú ý import đúng class Model này
+import org.springframework.ui.Model; 
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
