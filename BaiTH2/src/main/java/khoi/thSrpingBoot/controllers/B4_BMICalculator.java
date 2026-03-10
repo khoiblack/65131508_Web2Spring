@@ -1,4 +1,4 @@
-package khoi.thSrpingBoot.controllers;
+package khoi.thSrpingBoot.Controllers;
 
 
 

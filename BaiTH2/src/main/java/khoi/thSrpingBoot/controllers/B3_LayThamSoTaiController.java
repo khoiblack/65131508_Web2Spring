@@ -1,4 +1,4 @@
-package khoi.thSrpingBoot.controllers;
+package khoi.thSrpingBoot.Controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
