@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông Tin Sinh Viên</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f8f9fa; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 350px; }
+        h2 { color: #007bff; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        .info-row { margin: 15px 0; font-size: 16px; border-bottom: 1px dashed #eee; padding-bottom: 5px; }
+        .label { font-weight: bold; color: #555; display: inline-block; width: 100px; }
+        .data { color: #222; font-weight: 500;}
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Hồ Sơ Sinh Viên</h2>
+        
+        <div class="info-row">
+            <span class="label">MSSV:</span> 
+            <span class="data" th:text="${mssv}"></span>
+        </div>
+        
+        <div class="info-row">
+            <span class="label">Họ và tên:</span> 
+            <span class="data" th:text="${hoTen}"></span>
+        </div>
+        
+        <div class="info-row">
+            <span class="label">Năm sinh:</span> 
+            <span class="data" th:text="${namSinh}"></span>
+        </div>
+        
+        <div class="info-row">
+            <span class="label">Giới tính:</span> 
+            <span class="data" th:text="${gioiTinh}"></span>
+        </div>
+    </div>
+
+</body>
+</html>
