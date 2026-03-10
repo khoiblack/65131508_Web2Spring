@@ -5,9 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class SinhVienController {
+public class B1_HelloSpringBoot {
 
-    @GetMapping("/thongtin")
+    @GetMapping("/bai2")
     public String hienThiThongTin(Model model) {
         
         
@@ -17,6 +17,6 @@ public class SinhVienController {
         model.addAttribute("gioiTinh", "Nam");
 
         
-        return "thongtin"; 
+        return "bai2"; 
     }
 }
