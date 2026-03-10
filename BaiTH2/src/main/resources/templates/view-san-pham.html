@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết Sản Phẩm</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f5f5fa; display: flex; justify-content: center; padding: 50px; }
+        .product-card { background: white; padding: 25px; border-radius: 8px; width: 300px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h2 { color: #333; font-size: 22px; margin-top: 0; }
+        .price { color: #ff424e; font-size: 24px; font-weight: bold; margin: 15px 0; }
+        .detail { color: #787878; font-size: 14px; margin-bottom: 8px; }
+        .btn-buy { background: #ff424e; color: white; border: none; padding: 12px; width: 100%; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 15px; }
+        .btn-buy:hover { background: #e0202e; }
+    </style>
+</head>
+<body>
+
+    <div class="product-card">
+        <h2 th:text="${sp.tenSP}">Tên sản phẩm: </h2>
+        
+        <div class="detail">Mã sản phẩm: <span th:text="${sp.maSP}"></span></div>
+        
+        <div class="detail">Kho: <span th:text="${sp.soLuong}"></span> chiếc</div>
+        
+        <div class="price">Giá bán: <span th:text="${sp.gia}"></span> VNĐ</div>
+        
+        <button class="btn-buy">CHỌN MUA</button>
+    </div>
+
+</body>
+</html>
