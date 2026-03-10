@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kết quả BMI</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #e0f7fa; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 350px; text-align: center; }
+        .bmi-number { font-size: 55px; font-weight: bold; margin: 20px 0; }
+        .btn-back { display: inline-block; margin-top: 25px; padding: 12px 25px; background: #34495e; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;}
+        .btn-back:hover { background: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="color: #333;">KẾT QUẢ CỦA BẠN</h2>
+        <p style="color: #666; font-size: 18px;">Chỉ số BMI:</p>
+        
+        <div class="bmi-number" th:text="${chiSoBMI}" th:style="'color: ' + ${mauSac}"></div>
+        
+        <h3 th:text="${phanLoai}" th:style="'color: ' + ${mauSac}"></h3>
+        
+        <a href="/bmi" class="btn-back">Tính lại</a>
+    </div>
+</body>
+</html>
