@@ -2,37 +2,116 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Layout Dashboard</title>
+    <title>Dashboard - Trang chủ</title>
+    <style>
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 2px solid #000; 
+        }
+        .logo { font-weight: bold; color: #d32f2f; }
+        .logo span { font-size: 12px; color: #1976d2; display: block; font-weight: normal; }
+        .user-name { font-weight: bold; font-size: 16px; }
+
+        .main-wrapper {
+            display: flex;
+            flex: 1; 
+        }
+
+        
+        .sidebar {
+            width: 200px;
+            border-right: 2px solid #000; 
+            padding: 10px; 
+            background-color: #fafafa;
+        }
+        .sidebar ul { 
+            list-style: none; 
+            border: 1px solid #000; 
+            border-bottom: none; 
+            background-color: #fff;
+        }
+        .sidebar ul li {
+            border-bottom: 1px solid #000; 
+        }
+        .sidebar ul li a {
+            display: block;
+            padding: 5px 10px; 
+            text-decoration: none;
+            color: #333;
+        }
+        .sidebar ul li a:hover { background-color: #ddd; }
+        
+        
+        .menu-title a { font-weight: bold; font-size: 17px; }
+        
+        
+        .empty-row { height: 28px; } 
+        
+
+        .content {
+            flex: 1;
+            padding: 30px;
+        }
+        .cv-box {
+            border: 1px dashed #ccc;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            border-top: 2px solid #000; 
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
 
-    <table border="1" width="100%" cellpadding="10" cellspacing="0">
+    <header>
+        <div class="logo">
+            <span>TRƯỜNG ĐẠI HỌC NHA TRANG</span>
+            KHOA CÔNG NGHỆ THÔNG TIN
+        </div>
+        <div class="user-name">
+            [Cái Trần Đăng Khôi]
+        </div>
+    </header>
+
+    <div class="main-wrapper">
         
-        <tr>
-            <td colspan="2">
-                [Phần Header: Tên trường và Username]
-            </td>
-        </tr>
+        <aside class="sidebar">
+            <ul>
+                <li class="menu-title"><a th:href="@{/dashboard}">Dashboard</a></li>
+                <li><a th:href="@{/topic/all}">Topic -List</a></li>
+                <li><a th:href="@{/topic/new}">Topic -Addnew</a></li>
+                <li class="empty-row"></li> <li><a th:href="@{/student/all}">Student - List</a></li>
+                <li><a th:href="@{/student/new}">Student - Adnew</a></li>
+                <li class="empty-row"></li> </ul>
+        </aside>
 
-        <tr height="400"> 
-            
-            <td width="25%" valign="top">
-                [Phần Menu: Dashboard, Topic, Student...]
-            </td>
-            
-            <td width="75%" valign="top">
-                [Phần Nội dung: CV Sinh viên]
-            </td>
-            
-        </tr>
+        <main class="content">
+            <h2>Nội dung CV Sinh viên</h2>
+            <br>
+            <div class="cv-box">
+                <p><strong>Họ và tên:</strong> Cái Trần Đăng Khôi</p>
+                <p><strong>Mã số sinh viên:</strong> 65131508</p>
+                <p><strong>Sở thích:</strong> Lập trình Java, Android, Web</p>
+            </div>
+        </main>
 
-        <tr>
-            <td colspan="2" align="center">
-                [Phần Footer: ©2025 by ...]
-            </td>
-        </tr>
+    </div>
 
-    </table>
+    <footer>
+        ©2025 by Cái Trần Đăng Khôi – FIT.NTU
+    </footer>
 
 </body>
 </html>
