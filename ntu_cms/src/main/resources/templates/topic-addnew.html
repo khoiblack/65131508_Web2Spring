@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm mới Topic</title>
+    <style>
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 2px solid #000; }
+        .logo { font-weight: bold; color: #d32f2f; }
+        .logo span { font-size: 12px; color: #1976d2; display: block; font-weight: normal; }
+        .user-name { font-weight: bold; font-size: 16px; }
+        .main-wrapper { display: flex; flex: 1; }
+        .sidebar { width: 200px; border-right: 2px solid #000; padding: 10px; background-color: #fafafa; }
+        .sidebar ul { list-style: none; border: 1px solid #000; border-bottom: none; background-color: #fff; }
+        .sidebar ul li { border-bottom: 1px solid #000; }
+        .sidebar ul li a { display: block; padding: 5px 10px; text-decoration: none; color: #333; }
+        .sidebar ul li a:hover { background-color: #ddd; }
+        .menu-title a { font-weight: bold; font-size: 17px; }
+        .empty-row { height: 28px; } 
+        .content { flex: 1; padding: 30px; }
+        footer { text-align: center; padding: 10px; border-top: 2px solid #000; font-size: 14px; }
+
+        
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; }
+        .form-group input { width: 100%; max-width: 400px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        .btn-submit { background-color: #2ecc71; color: white; padding: 10px 20px; border: none; font-weight: bold; cursor: pointer; margin-top: 10px; border-radius: 4px;}
+        .btn-submit:hover { background-color: #27ae60; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <span>TRƯỜNG ĐẠI HỌC NHA TRANG</span>
+            KHOA CÔNG NGHỆ THÔNG TIN
+        </div>
+        <div class="user-name">
+            [Cái Trần Đăng Khôi]
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar">
+            <ul>
+                <li class="menu-title"><a th:href="@{/dashboard}">Dashboard</a></li>
+                <li><a th:href="@{/topic/all}">Topic -List</a></li>
+                <li><a th:href="@{/topic/new}"><b>Topic -Addnew</b></a></li>
+                <li class="empty-row"></li> 
+                <li><a th:href="@{/student/all}">Student - List</a></li>
+                <li><a th:href="@{/student/new}">Student - Adnew</a></li>
+                <li class="empty-row"></li> 
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h2>Thêm mới Topic</h2>
+            <br>
+            
+            <form action="/topic/save" method="post" th:object="${topic}">
+                
+                <div class="form-group">
+                    <label>ID:</label>
+                    <input type="text" th:field="*{id}" required placeholder="Nhập mã topic (VD: T04)">
+                </div>
+                
+                <div class="form-group">
+                    <label>Tên Topic (topicName):</label>
+                    <input type="text" th:field="*{topicName}" required placeholder="Nhập tên đề tài...">
+                </div>
+                
+                <div class="form-group">
+                    <label>Mã GV hướng dẫn (supervisorId):</label>
+                    <input type="text" th:field="*{supervisorId}">
+                </div>
+                
+                <div class="form-group">
+                    <label>Loại Topic (topicType):</label>
+                    <input type="text" th:field="*{topicType}">
+                </div>
+                
+                <div class="form-group">
+                    <label>Mô tả (topicDescription):</label>
+                    <input type="text" th:field="*{topicDescription}">
+                </div>
+                
+                <button type="submit" class="btn-submit">Lưu Topic Mới</button>
+            </form>
+
+        </main>
+
+    </div>
+
+    <footer>
+        ©2025 by Cái Trần Đăng Khôi – FIT.NTU
+    </footer>
+
+</body>
+</html>
