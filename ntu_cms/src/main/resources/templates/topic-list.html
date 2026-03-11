@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Topic</title>
+    <style>
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 2px solid #000; 
+        }
+        .logo { font-weight: bold; color: #d32f2f; }
+        .logo span { font-size: 12px; color: #1976d2; display: block; font-weight: normal; }
+        .user-name { font-weight: bold; font-size: 16px; }
+
+        .main-wrapper {
+            display: flex;
+            flex: 1; 
+        }
+
+        .sidebar {
+            width: 200px;
+            border-right: 2px solid #000; 
+            padding: 10px; 
+            background-color: #fafafa;
+        }
+        .sidebar ul { 
+            list-style: none; 
+            border: 1px solid #000; 
+            border-bottom: none; 
+            background-color: #fff;
+        }
+        .sidebar ul li {
+            border-bottom: 1px solid #000; 
+        }
+        .sidebar ul li a {
+            display: block;
+            padding: 5px 10px; 
+            text-decoration: none;
+            color: #333;
+        }
+        .sidebar ul li a:hover { background-color: #ddd; }
+        .menu-title a { font-weight: bold; font-size: 17px; }
+        .empty-row { height: 28px; } 
+
+        .content {
+            flex: 1;
+            padding: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            border-top: 2px solid #000; 
+            font-size: 14px;
+        }
+
+        
+        .table-topic {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .table-topic th, .table-topic td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: left;
+        }
+        .table-topic th {
+            background-color: #f2f2f2;
+        }
+        .action-links a {
+            text-decoration: none;
+            color: #1976d2;
+            margin: 0 5px;
+            font-weight: bold;
+        }
+        .action-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <span>TRƯỜNG ĐẠI HỌC NHA TRANG</span>
+            KHOA CÔNG NGHỆ THÔNG TIN
+        </div>
+        <div class="user-name">
+            [Cái Trần Đăng Khôi]
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar">
+            <ul>
+                <li class="menu-title"><a th:href="@{/dashboard}">Dashboard</a></li>
+                <li><a th:href="@{/topic/all}"><b>Topic -List</b></a></li>
+                <li><a th:href="@{/topic/new}">Topic -Addnew</a></li>
+                <li class="empty-row"></li> 
+                <li><a th:href="@{/student/all}">Student - List</a></li>
+                <li><a th:href="@{/student/new}">Student - Adnew</a></li>
+                <li class="empty-row"></li> 
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h2>Topic - List</h2>
+            
+            <table class="table-topic">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>topicName</th>
+                        <th>supervisorId</th>
+                        <th>topicType</th>
+                        <th style="text-align: center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="t : ${dsTopic}">
+                        <td th:text="${t.id}"></td>
+                        <td th:text="${t.topicName}"></td>
+                        <td th:text="${t.supervisorId}"></td>
+                        <td th:text="${t.topicType}"></td>
+                        <td class="action-links" align="center">
+                            <a th:href="@{/topic/view/{id}(id=${t.id})}">[view]</a> 
+                            <a th:href="@{/topic/edit/{id}(id=${t.id})}">[edit]</a> 
+                            <a th:href="@{/topic/delete/{id}(id=${t.id})}">[delete]</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </main>
+
+    </div>
+
+    <footer>
+        ©2025 by Cái Trần Đăng Khôi – FIT.NTU
+    </footer>
+
+</body>
+</html>
