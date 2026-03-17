@@ -39,35 +39,35 @@ public class TopicController {
         
         return "redirect:/topic/all";
     }
- // 3. Hàm này dùng để XEM CHI TIẾT một Topic dựa vào ID
+ 
     @GetMapping("/topic/view/{id}")
     public String viewTopic(@PathVariable("id") String id, Model model) {
         
-        // Tạo một biến để chứa topic tìm được
+        
         Topic foundTopic = null;
         
-        // Dùng vòng lặp chạy qua toàn bộ danh sách ảo
+        
         for (Topic t : ExampleDataTopic.topics) {
-            // Nếu tìm thấy ID trùng khớp với ID trên đường dẫn
+            
             if (t.getId().equals(id)) {
-                foundTopic = t; // Lưu lại
-                break; // Ngừng tìm kiếm
+                foundTopic = t; 
+                break; 
             }
         }
         
-        // Gửi topic tìm được sang giao diện HTML với tên là "topic"
+        
         model.addAttribute("topic", foundTopic);
         
-        return "topic-view"; // Gọi file topic-view.html
+        return "topic-view"; 
     }
- // 4. Hàm này dùng để XÓA một Topic dựa vào ID
+ 
     @GetMapping("/topic/delete/{id}")
     public String deleteTopic(@PathVariable("id") String id) {
         
-        // Cách nhanh nhất trong Java: Tìm trong danh sách ảo, nếu topic nào có ID trùng khớp thì xóa luôn
+        
         ExampleDataTopic.topics.removeIf(t -> t.getId().equals(id));
         
-        // Xóa xong thì tự động tải lại (redirect) về trang danh sách để thấy kết quả
+        
         return "redirect:/topic/all";
     }
 }
