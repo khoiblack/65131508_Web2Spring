@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết Topic</title>
+    <style>
+        /* CSS BỘ KHUNG CHUNG */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: #333; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 2px solid #000; }
+        .logo { font-weight: bold; color: #d32f2f; }
+        .logo span { font-size: 12px; color: #1976d2; display: block; font-weight: normal; }
+        .user-name { font-weight: bold; font-size: 16px; }
+        .main-wrapper { display: flex; flex: 1; }
+        .sidebar { width: 200px; border-right: 2px solid #000; padding: 10px; background-color: #fafafa; }
+        .sidebar ul { list-style: none; border: 1px solid #000; border-bottom: none; background-color: #fff; }
+        .sidebar ul li { border-bottom: 1px solid #000; }
+        .sidebar ul li a { display: block; padding: 5px 10px; text-decoration: none; color: #333; }
+        .sidebar ul li a:hover { background-color: #ddd; }
+        .menu-title a { font-weight: bold; font-size: 17px; }
+        .empty-row { height: 28px; } 
+        .content { flex: 1; padding: 30px; }
+        footer { text-align: center; padding: 10px; border-top: 2px solid #000; font-size: 14px; }
+
+        /* CSS RIÊNG CHO BẢNG CHI TIẾT */
+        .detail-table { width: 100%; max-width: 600px; border-collapse: collapse; margin-top: 20px; }
+        .detail-table th, .detail-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .detail-table th { background-color: #f2f2f2; width: 30%; }
+        .btn-back { display: inline-block; background-color: #34495e; color: white; padding: 8px 15px; text-decoration: none; font-weight: bold; margin-top: 20px; border-radius: 4px; }
+        .btn-back:hover { background-color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <span>TRƯỜNG ĐẠI HỌC NHA TRANG</span>
+            KHOA CÔNG NGHỆ THÔNG TIN
+        </div>
+        <div class="user-name">
+            [Cái Trần Đăng Khôi]
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        
+        <aside class="sidebar">
+            <ul>
+                <li class="menu-title"><a th:href="@{/dashboard}">Dashboard</a></li>
+                <li><a th:href="@{/topic/all}"><b>Topic -List</b></a></li>
+                <li><a th:href="@{/topic/new}">Topic -Addnew</a></li>
+                <li class="empty-row"></li> 
+                <li><a th:href="@{/student/all}">Student - List</a></li>
+                <li><a th:href="@{/student/new}">Student - Adnew</a></li>
+                <li class="empty-row"></li> 
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h2>Chi tiết Đề tài (Topic)</h2>
+            
+            <table class="detail-table">
+                <tr>
+                    <th>ID Đề tài:</th>
+                    <td th:text="${topic.id}"></td>
+                </tr>
+                <tr>
+                    <th>Tên Đề tài:</th>
+                    <td style="font-weight: bold; color: #d32f2f;" th:text="${topic.topicName}"></td>
+                </tr>
+                <tr>
+                    <th>Mã GV Hướng dẫn:</th>
+                    <td th:text="${topic.supervisorId}"></td>
+                </tr>
+                <tr>
+                    <th>Phân loại:</th>
+                    <td th:text="${topic.topicType}"></td>
+                </tr>
+                <tr>
+                    <th>Mô tả chi tiết:</th>
+                    <td th:text="${topic.topicDescription}"></td>
+                </tr>
+            </table>
+
+            <a th:href="@{/topic/all}" class="btn-back">⬅ Quay lại danh sách</a>
+
+        </main>
+
+    </div>
+
+    <footer>
+        ©2025 by Cái Trần Đăng Khôi – FIT.NTU
+    </footer>
+
+</body>
+</html>

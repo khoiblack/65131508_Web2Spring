@@ -3,7 +3,7 @@ package thiGK.ntu65131508caitrandangkhoi_fitcms.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExampleData {
+public class ExampleDataTopic {
     
     public static List<Topic> topics = new ArrayList<>();
 
