@@ -1,14 +1,25 @@
 package thiGK.ntu65131508caitrandangkhoi_fitcms.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-
+@Entity
+@Table(name = "student")
 public class Student {
+    
+    @Id
+    @Column(name = "id")
     private String id;
+    
+    @Column(name = "name")
     private String name;
+    
+    @Column(name = "group_id")
     private String groupId;
 
-    public Student() {
-    }
+    public Student() {}
 
     public Student(String id, String name, String groupId) {
         this.id = id;
