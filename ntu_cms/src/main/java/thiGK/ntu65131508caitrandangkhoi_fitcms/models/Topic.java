@@ -1,12 +1,32 @@
 package thiGK.ntu65131508caitrandangkhoi_fitcms.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "topic") 
 public class Topic {
+    
+    @Id 
+    @Column(name = "id") 
     private String id;
+    
+    @Column(name = "topic_name") 
     private String topicName;
+    
+    @Column(name = "topic_description") 
     private String topicDescription;
+    
+    @Column(name = "supervisor_id") 
     private String supervisorId;
+    
+    @Column(name = "topic_type") 
     private String topicType;
 
+    
+    
     public Topic() {
     }
 
