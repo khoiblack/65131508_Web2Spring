@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Chi tiết Sinh viên</title>
+    <th:block th:replace="~{fragments :: head_css}"></th:block>
+    <style>
+        /* CSS dùng riêng cho trang xem chi tiết */
+        .detail-table { width: 100%; max-width: 500px; border-collapse: collapse; margin-top: 20px; }
+        .detail-table th, .detail-table td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        .detail-table th { background-color: #f2f2f2; width: 40%; }
+        .btn-back { display: inline-block; background-color: #34495e; color: white; padding: 8px 15px; text-decoration: none; font-weight: bold; margin-top: 20px; border-radius: 4px; }
+        .btn-back:hover { background-color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div th:replace="~{fragments :: header_fragment}"></div>
+
+    <div class="main-wrapper">
+        
+        <div th:replace="~{fragments :: sidebar_fragment}"></div>
+
+        <main class="content">
+            <h2>Hồ sơ Sinh viên</h2>
+            
+            <table class="detail-table">
+                <tr>
+                    <th>Mã Sinh Viên:</th>
+                    <td th:text="${student.id}"></td>
+                </tr>
+                <tr>
+                    <th>Họ và Tên:</th>
+                    <td style="font-weight: bold; color: #1976d2;" th:text="${student.name}"></td>
+                </tr>
+                <tr>
+                    <th>Lớp:</th>
+                    <td th:text="${student.groupId}"></td>
+                </tr>
+            </table>
+
+            <a th:href="@{/student/all}" class="btn-back">⬅ Quay lại danh sách</a>
+        </main>
+
+    </div>
+
+    <div th:replace="~{fragments :: footer_fragment}"></div>
+
+</body>
+</html>

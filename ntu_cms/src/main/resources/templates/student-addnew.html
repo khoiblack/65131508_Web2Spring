@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thêm mới Sinh viên</title>
+    <th:block th:replace="~{fragments :: head_css}"></th:block>
+</head>
+<body>
+
+    <div th:replace="~{fragments :: header_fragment}"></div>
+
+    <div class="main-wrapper">
+        
+        <div th:replace="~{fragments :: sidebar_fragment}"></div>
+
+        <main class="content">
+            <h2>Thêm mới Sinh viên</h2>
+            <br>
+            
+            <form action="/student/save" method="post" th:object="${student}">
+                <div class="form-group">
+                    <label>Mã Sinh Viên (id):</label>
+                    <input type="text" th:field="*{id}" required placeholder="VD: 65131508">
+                </div>
+                
+                <div class="form-group">
+                    <label>Họ và Tên (name):</label>
+                    <input type="text" th:field="*{name}" required placeholder="Nhập họ tên...">
+                </div>
+                
+                <div class="form-group">
+                    <label>Lớp (groupId):</label>
+                    <input type="text" th:field="*{groupId}" placeholder="VD: 65IT1">
+                </div>
+                
+                <button type="submit" class="btn-submit">Lưu Sinh Viên</button>
+            </form>
+        </main>
+
+    </div>
+
+    <div th:replace="~{fragments :: footer_fragment}"></div>
+
+</body>
+</html>
