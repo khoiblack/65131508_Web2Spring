@@ -9,4 +9,19 @@ public class HomeController {
     public String hello() {
         return "hello";
     }
+    // test nguoi dung thong thuong
+    @GetMapping("/products")
+    public String indexP() {
+        return "sanpham";
+    }
+    // test user quan tri
+    @GetMapping("/admincp")
+    public String indexAd() {
+        return "indexAdmin";
+    }
+    @GetMapping("/login")
+    public String getLogin(){
+        return "login";
+    }
+    
 }
