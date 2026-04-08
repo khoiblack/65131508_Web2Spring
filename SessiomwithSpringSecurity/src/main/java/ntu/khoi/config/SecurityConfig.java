@@ -14,29 +14,23 @@ public class SecurityConfig {
 
         http
             .authorizeHttpRequests(auth -> auth
-                
-                .requestMatchers("/invalid-session", "/session-expired").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
-               
                 .defaultSuccessUrl("/home", true)
                 .permitAll()
             )
             .logout(logout -> logout
                 .permitAll()
-               
             )
             .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) 
-                .invalidSessionUrl("/invalid-session") 
-                .maximumSessions(1) 
-                .maxSessionsPreventsLogin(true) 
-                .expiredUrl("/session-expired") 
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) // Mặc định
+                // .invalidSessionUrl("/invalid-session") // ĐÃ KHÓA: Tắt URL báo lỗi session
+                .maximumSessions(1) // Chỉ cho phép 1 session
+                .maxSessionsPreventsLogin(true) // Chặn người thứ 2 đăng nhập
+                // .expiredUrl("/session-expired") // ĐÃ KHÓA: Tắt URL báo hết hạn
             );
 
         return http.build();
     }
-    
-    
 }
