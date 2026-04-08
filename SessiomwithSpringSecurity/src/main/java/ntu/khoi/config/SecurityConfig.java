@@ -1,9 +1,5 @@
 package ntu.khoi.config;
 
-
-
-
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,25 +14,29 @@ public class SecurityConfig {
 
         http
             .authorizeHttpRequests(auth -> auth
+                
+                .requestMatchers("/invalid-session", "/session-expired").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/login")
-                .permitAll()
+               
                 .defaultSuccessUrl("/home", true)
+                .permitAll()
             )
             .logout(logout -> logout
                 .permitAll()
-                .logoutSuccessUrl("/login?logout")
+               
             )
             .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) // Default
-                .invalidSessionUrl("/invalid-session") // session lỗi
-                .maximumSessions(1) // chỉ cho phép 1 session
-                .maxSessionsPreventsLogin(true) // chặn login nếu đã có session
-                .expiredUrl("/session-expired") // khi session hết hạn
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED) 
+                .invalidSessionUrl("/invalid-session") 
+                .maximumSessions(1) 
+                .maxSessionsPreventsLogin(true) 
+                .expiredUrl("/session-expired") 
             );
 
         return http.build();
     }
+    
+    
 }
