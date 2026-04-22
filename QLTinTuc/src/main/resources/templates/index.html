@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Tin Tức Của Khôi</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9;}
+        .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .category { display: inline-block; padding: 5px 10px; background-color: #007bff; color: white; border-radius: 15px; font-size: 12px; }
+        .title { color: #333; margin-top: 10px;}
+        .content { color: #666; }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center; color: #333;">BÁO ĐIỆN TỬ KHÔI NEWS</h1>
+    <hr>
+
+    <div th:each="tin : ${dsTinTuc}" class="card">
+        <span class="category" th:text="${tin.loaiTin.tenLoai}">Tên loại</span>
+        
+        <h2 class="title" th:text="${tin.tieuDe}">Tiêu đề bài viết</h2>
+        
+        <p class="content" th:text="${tin.noiDung}">Nội dung bài viết sẽ hiện ở đây...</p>
+    </div>
+
+</body>
+</html>
