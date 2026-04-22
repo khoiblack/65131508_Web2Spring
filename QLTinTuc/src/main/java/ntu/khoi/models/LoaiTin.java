@@ -1,6 +1,7 @@
 package ntu.khoi.models;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ public class LoaiTin {
 
     @Column(name = "ten_loai")
     private String tenLoai;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "loaiTin", cascade = CascadeType.ALL)
     private List<TinTuc> danhSachTinTuc;
 
