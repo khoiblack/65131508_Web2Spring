@@ -12,8 +12,23 @@ public class TinTucService {
     @Autowired
     private TinTucRepository tinTucRepository;
 
-    // Hàm này sẽ gom toàn bộ tin tức có trong database trả về
+    // 1. READ: Lấy tất cả tin tức (Đã làm)
     public List<TinTuc> layTatCaTinTuc() {
         return tinTucRepository.findAll();
+    }
+
+    // 2. CREATE & UPDATE: Lưu tin tức (Nếu có ID thì là Sửa, không có ID thì là Thêm mới)
+    public void luuTinTuc(TinTuc tinTuc) {
+        tinTucRepository.save(tinTuc);
+    }
+
+    // 3. Lấy ra 1 bản tin cụ thể theo ID (Dùng để hiển thị lên form lúc bấm nút Sửa)
+    public TinTuc layTinTucTheoId(Integer id) {
+        return tinTucRepository.findById(id).orElse(null);
+    }
+
+    // 4. DELETE: Xóa tin tức
+    public void xoaTinTuc(Integer id) {
+        tinTucRepository.deleteById(id);
     }
 }
