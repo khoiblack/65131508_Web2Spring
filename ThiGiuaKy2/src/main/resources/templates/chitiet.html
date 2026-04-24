@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${tin.tieuDe}">Chi tiết tin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-dark bg-primary shadow-sm mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">📰 BÁO MỚI 24H</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow border-0 p-4">
+                    
+                    <div class="mb-3">
+                        <span class="badge bg-info text-dark px-3 py-2" th:text="${tin.theLoaiTin.tenTheLoai}">Thể loại</span>
+                    </div>
+                    
+                    <h1 class="fw-bold mb-4" style="color: #2c3e50;" th:text="${tin.tieuDe}">Tiêu đề bài viết</h1>
+                    
+                    <hr>
+                    
+                    <div class="fs-5 mt-4" style="line-height: 1.8; text-align: justify;" th:text="${tin.noiDung}">
+                        Nội dung chi tiết của bài viết sẽ nằm ở đây...
+                    </div>
+                    
+                    <div class="mt-5">
+                        <a th:href="@{/}" class="btn btn-secondary">&larr; Quay lại trang chủ</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
